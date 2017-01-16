@@ -23,6 +23,8 @@ class StaticStorage(FixedS3BotoStorage):
     Storage for static files.
     The folder is defined in settings.STATIC_S3_PATH
     """
+    # Disable querystring_auth by default for static
+    querystring_auth = False
 
     def __init__(self, *args, **kwargs):
         kwargs['location'] = settings.STATIC_S3_PATH
